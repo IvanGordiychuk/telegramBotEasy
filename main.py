@@ -1,8 +1,9 @@
 import telebot
+import tokens
 from telebot import types
 from pymongo import MongoClient
 #f
-connect_to_mongo=""
+connect_to_mongo=tokens.mongodb_URL
 name_of_db = "TelegramDB"
 name_of_collection = "TelegramColl"
 client = MongoClient(connect_to_mongo)
@@ -11,7 +12,7 @@ db = client["TelegramDB"]
 collection = db["TelegramColl"]
 
 
-bot = telebot.TeleBot()
+bot = telebot.TeleBot(tokens.telegram_token)
 
 name = ''
 surname = ''
